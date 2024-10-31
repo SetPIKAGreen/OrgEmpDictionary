@@ -41,10 +41,16 @@ namespace OrganizationsEmployeesDictionaryWPF.DataBase
             await db.InsertAsync(entity);
         }
 
+        public static async Task<List<T>> GetAllTable<T>() where T : new()
+        {
+            return await db.Table<T>().ToListAsync();
+        }
+
         public static async Task<T> GetByIdAsync<T>(int id) where T: new()
         {
             return await db.FindAsync<T>(id);
         }
+
         public static async Task UpdateById<T>(int id) where T: new()
         {
             var entity = await db.FindAsync<T>(id);
@@ -53,6 +59,7 @@ namespace OrganizationsEmployeesDictionaryWPF.DataBase
                 await db.UpdateAsync(entity);
             }
         }
+
         public static async Task DeleteById<T>(int id) where T : new()
         {
             var entity = await db.FindAsync<T>(id);
@@ -61,9 +68,6 @@ namespace OrganizationsEmployeesDictionaryWPF.DataBase
                 await db.DeleteAsync(entity);
             }
         }
-        public static async Task<List<T>> GetAllTable<T>() where T: new()
-        {
-            return await db.Table<T>().ToListAsync();
-        }
+
     }
 }
