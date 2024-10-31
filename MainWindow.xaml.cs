@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OrganizationsEmployeesDictionaryWPF.DataBase;
 
 namespace OrganizationsEmployeesDictionaryWPF
 {
@@ -23,6 +24,12 @@ namespace OrganizationsEmployeesDictionaryWPF
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            await DB.Initialize();
         }
     }
 }
