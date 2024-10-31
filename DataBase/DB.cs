@@ -56,7 +56,7 @@ namespace OrganizationsEmployeesDictionaryWPF.DataBase
                 await db.DeleteAsync(entity);
             }
         }
-        public static async Task<List<T>> GetAllTable<T>(T) where T: new()
+        public static async Task<List<T>> GetAllTable<T>() where T: new()
         {
             return await db.Table<T>().ToListAsync();
         }
