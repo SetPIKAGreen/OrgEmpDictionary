@@ -16,5 +16,6 @@ namespace OrganizationsEmployeesDictionaryWPF.Models
         public int Age { get; set; }
         public int OrganizationId { get; set; }
         public string JobTitle { get; set; }
+        public string PhotoPath { get; set; }
     }
 }
