@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,27 @@ namespace OrganizationsEmployeesDictionaryWPF.DataBase
                 db = new SQLiteAsyncConnection(DBPath);
             }
             return db;
+        }
+
+        public static async Task AddAsync<T>(T entity) where T: new()
+        {
+            await db.InsertAsync(entity);
+        }
+        public static async Task UpdateById<T>(int id) where T: new()
+        {
+            var entity = await db.FindAsync<T>(id);
+            if (entity != null)
+            {
+                await db.UpdateAsync(entity);
+            }
+        }
+        public static async Task DeleteById<T>(int id) where T : new()
+        {
+            var entity = await db.FindAsync<T>(id);
+            if(entity != null)
+            {
+                await db.DeleteAsync(entity);
+            }
         }
     }
 }
