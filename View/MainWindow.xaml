@@ -62,22 +62,47 @@
 
             </StackPanel>
 
-            <Border Background="#D9F970"
-                    Grid.Column="2"
+            <Border Grid.Column="2"
                     CornerRadius="25"
                     Margin="5">
-                <TextBox VerticalAlignment="Center"
+
+
+                    <TextBox VerticalAlignment="Center"
                          Background="Transparent"
                          BorderThickness="0"
                          Foreground="Black"
-                         Margin="23,0,23,0" />
+                         Margin="23,0,23,0" 
+                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         IsEnabled="{Binding IsSearchEnabled}"/>
+
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#D9F970"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSearchEnabled}" Value="False">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
             </Border>
 
             <Border Grid.Column="3" 
                     CornerRadius="15" 
-                    Background="#FFDE40" 
+                     
                     Margin="5" 
-                    Width="65">
+                    Width="65"
+                    IsEnabled="{Binding IsAdd10Enabled}">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#FFDE40"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsAdd10Enabled}" Value="False">
+                                <Setter Property="Background" Value="#CBC6AA"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
                 <Label VerticalAlignment="Center" 
                        HorizontalAlignment="Center">Add10</Label>
             </Border>

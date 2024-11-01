@@ -32,6 +32,6 @@ namespace OrganizationsEmployeesDictionaryWPF.View
                       
         }
 
-       
+
     }
 }

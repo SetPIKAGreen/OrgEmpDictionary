@@ -14,6 +14,10 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
         private List<Organization> _organizations;
         private List<Employee> _employees;
         private List<object> _displayedItems;
+        private readonly List<object> _originalItems;
+        private string _searchText;
+        private bool _isSearchEnabled;
+        private bool _isAdd10Enabled;
 
         public List<Organization> Organizations
         {
@@ -24,7 +28,6 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 OnPropertyChange(nameof(Organizations));
             }
         }
-
         public List<Employee> Employees
         {
             get => _employees;
@@ -34,7 +37,6 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 OnPropertyChange(nameof(Employees));
             }
         }
-
         public List<object> DisplayedItems
         {
             get => _displayedItems;
@@ -44,6 +46,34 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 OnPropertyChange(nameof(DisplayedItems));
             }
         }
+        public string SearchText 
+        {
+            get => _searchText;
+            set
+            {
+                _searchText = value;
+                OnPropertyChange(nameof(SearchText));
+                SearchItem(_searchText);
+            } 
+        }      
+        public bool IsSearchEnabled
+        {
+            get => _isSearchEnabled;
+            set
+            {
+                _isSearchEnabled = value;
+                OnPropertyChange(nameof(IsSearchEnabled));
+            }
+        }
+        public bool IsAdd10Enabled
+        {
+            get => _isAdd10Enabled;
+            set
+            {
+                _isAdd10Enabled = value;
+                OnPropertyChange(nameof(IsAdd10Enabled));
+            }
+        }
 
         public ICommand ShowOrganizationsCommand { get; }
         public ICommand ShowEmployeesCommand { get; }
@@ -51,9 +81,11 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
 
         public MainWindowVM()
         {
+            _originalItems = new List<object>();
             ShowOrganizationsCommand = new RelayCommand(ShowOrganizations);
             ShowEmployeesCommand = new RelayCommand(ShowEmployees);
-
+            IsSearchEnabled = false;
+            IsAdd10Enabled = true;
             Initialize();
         }
         private async void Initialize()
@@ -123,19 +155,41 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 Employees.Add(employee3);
             }
             ShowOrganizations();
+
             foreach(var a in Employees)
             {
                 a.OrganizationName = Organizations.FirstOrDefault(m => m.Id == a.OrganizationId).Name;
             }
+            _originalItems.AddRange(Employees.Cast<object>());
         }
 
         private void ShowOrganizations()
         {
             DisplayedItems = Organizations.Cast<object>().ToList();
+            IsSearchEnabled = false;
+            IsAdd10Enabled = true;
         }
         private void ShowEmployees()
         {
             DisplayedItems = Employees.Cast<object>().ToList();
+            IsSearchEnabled = true;
+            IsAdd10Enabled = false;
+        }
+        private void SearchItem(string searchText)
+        {
+            
+            if (string.IsNullOrEmpty(searchText))
+            {
+                DisplayedItems = _originalItems.ToList();
+            }
+            else
+            {
+                var filtredItems = _originalItems.Where(m => m is Employee employee && (employee.FirstName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                employee.LastName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 || employee.Position.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                (int.TryParse(searchText, out int age) && employee.Age == age))).ToList();
+
+                DisplayedItems = filtredItems.Cast<object>().ToList();
+            }
         }
     }
 }
