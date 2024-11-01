@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,23 +14,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OrganizationsEmployeesDictionaryWPF.DataBase;
+using OrganizationsEmployeesDictionaryWPF.Models;
+using OrganizationsEmployeesDictionaryWPF.ViewModels;
 
-namespace OrganizationsEmployeesDictionaryWPF
+namespace OrganizationsEmployeesDictionaryWPF.View
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loaded;
+            DataContext = new MainWindowVM();
+                      
         }
 
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            await DB.Initialize();
-        }
+       
     }
 }

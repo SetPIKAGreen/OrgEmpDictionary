@@ -1,0 +1,214 @@
+﻿<Window x:Class="OrganizationsEmployeesDictionaryWPF.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:OrganizationsEmployeesDictionaryWPF.ViewModels"
+        xmlns:models="clr-namespace:OrganizationsEmployeesDictionaryWPF.Models"
+        Title="MainWindow" Height="450" Width="800"
+        Background="#CDF93E">
+    
+    <Window.DataContext>
+        <local:MainWindowVM />
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#CDF93E">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="4.5*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+
+                    <Border Background="#876ED7"
+                            Margin="5,5,5,0"
+                            CornerRadius="15">
+                        
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding ShowOrganizationsCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        
+                        <Label VerticalAlignment="Center"
+                               Margin="15,0,15,0" 
+                               Content="Организации"/>
+                    </Border>
+                
+                    <Border Background="#876ED7"
+                            Margin="5"
+                            CornerRadius="15">
+                        
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding ShowEmployeesCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        
+                        <Label VerticalAlignment="Center"
+                               Margin="15,0,15,0" 
+                               Content="Сотрудники"/>
+                    </Border>
+
+            </StackPanel>
+
+            <Border Background="#D9F970"
+                    Grid.Column="2"
+                    CornerRadius="25"
+                    Margin="5">
+                <TextBox VerticalAlignment="Center"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Foreground="Black"
+                         Margin="23,0,23,0" />
+            </Border>
+
+            <Border Grid.Column="3" 
+                    CornerRadius="15" 
+                    Background="#FFDE40" 
+                    Margin="5" 
+                    Width="65">
+                <Label VerticalAlignment="Center" 
+                       HorizontalAlignment="Center">Add10</Label>
+            </Border>
+            
+            <Border Grid.Column="4" 
+                    CornerRadius="15" 
+                    Background="#39E639" 
+                    Margin="5" 
+                    Width="65">
+                
+                <Label VerticalAlignment="Center" 
+                       HorizontalAlignment="Center">Add</Label>
+            </Border>
+            
+            <Border Grid.Column="5" 
+                    CornerRadius="15" 
+                    Background="#876ED7" 
+                    Margin="5" 
+                    Width="65">
+                
+                <Label VerticalAlignment="Center" 
+                       HorizontalAlignment="Center">Change</Label>
+            </Border>
+            
+            <Border Grid.Column="6" 
+                    CornerRadius="15" 
+                    Background="#FF4040" 
+                    Margin="5" 
+                    Width="65">
+                
+                <Label VerticalAlignment="Center" 
+                       HorizontalAlignment="Center">Delete</Label>
+            </Border>
+        </Grid>
+
+        
+        <Border Grid.Row="1" 
+                Margin="5" 
+                CornerRadius="15" 
+                Background="White">
+            
+            <Border Margin="5" 
+                    CornerRadius="25">
+                
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch">
+                    
+                    <ListBox HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             BorderThickness="0"
+                             ItemsSource="{Binding DisplayedItems}">
+
+                        <ListBox.Resources>
+                            <DataTemplate DataType="{x:Type models:Organization}">
+                                
+                                <Border BorderThickness="1"  
+                                        Margin="5">
+                                    
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            
+                                            <Label>Наименование: </Label>
+                                            
+                                            <TextBlock 
+                                                   HorizontalAlignment="Stretch"
+                                                   VerticalAlignment="Center"
+                                                   Text="{Binding Name}" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+
+                                            <Label>ИНН:</Label>
+
+                                            <TextBlock 
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Stretch"
+                                                           Text="{Binding Inn}" />
+
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+
+
+                            <DataTemplate DataType="{x:Type models:Employee}">
+                                <Border BorderThickness="1" 
+                                        Margin="5">
+                                    
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            
+                                            <Label>Фамилия:</Label>
+                                            
+                                            <TextBlock HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Center"
+                                                       Text="{Binding LastName}" />
+                                        </StackPanel>
+                                        
+                                        <StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            
+                                            <Label>Имя: </Label>
+                                            
+                                            <TextBlock HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Center"
+                                                       Text="{Binding FirstName}" />
+                                        </StackPanel>
+                                        
+                                        <StackPanel Orientation="Horizontal"
+                                                    VerticalAlignment="Center">
+                                            
+                                            <Label>Организация: </Label>
+                                            
+                                            <TextBlock HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Center"
+                                                       Text="{Binding OrganizationName}" />
+
+                                        </StackPanel>
+
+                                    </StackPanel> 
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.Resources>
+                    </ListBox>
+                </ScrollViewer>
+            </Border>
+        </Border>
+
+    </Grid>
+</Window>
