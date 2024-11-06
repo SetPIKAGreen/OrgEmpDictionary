@@ -54,13 +54,11 @@ namespace OrganizationsEmployeesDictionaryWPF.DataBase
             return await db.FindAsync<T>(id);
         }
 
-        public static async Task UpdateById<T>(int id) where T: new()
+        public static async Task UpdateAsync<T>(T entity) where T: new()
         {
-            var entity = await db.FindAsync<T>(id);
-            if (entity != null)
-            {
-                await db.UpdateAsync(entity);
-            }
+
+            await db.UpdateAsync(entity);
+  
         }
 
         public static async Task DeleteById<T>(int id) where T : new()
@@ -70,6 +68,10 @@ namespace OrganizationsEmployeesDictionaryWPF.DataBase
             {
                 await db.DeleteAsync(entity);
             }
+        }
+        public static async Task DeleteAsync<T>(T entity) where T: new()
+        {
+            await db.DeleteAsync(entity);
         }
 
 

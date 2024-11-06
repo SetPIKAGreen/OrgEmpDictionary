@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using OrganizationsEmployeesDictionaryWPF.DataBase;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace OrganizationsEmployeesDictionaryWPF.Models
         public string PhotoPath { get; set; }
         
         public string OrganizationName { get; set; }
+
+
     }
 }

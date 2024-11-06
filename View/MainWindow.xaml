@@ -4,12 +4,8 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:OrganizationsEmployeesDictionaryWPF.ViewModels"
         xmlns:models="clr-namespace:OrganizationsEmployeesDictionaryWPF.Models"
-        Title="MainWindow" Height="450" Width="800"
+        Title="Главная" Height="450" Width="800"
         Background="#CDF93E">
-    
-    <Window.DataContext>
-        <local:MainWindowVM />
-    </Window.DataContext>
     
     <Grid>
         <Grid.RowDefinitions>
@@ -113,18 +109,14 @@
                     Margin="5" 
                     Width="65">
                 
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding AddButtonClickCommaand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
                 <Label VerticalAlignment="Center" 
                        HorizontalAlignment="Center">Add</Label>
-            </Border>
-            
-            <Border Grid.Column="5" 
-                    CornerRadius="15" 
-                    Background="#876ED7" 
-                    Margin="5" 
-                    Width="65">
-                
-                <Label VerticalAlignment="Center" 
-                       HorizontalAlignment="Center">Change</Label>
             </Border>
             
             <Border Grid.Column="6" 
@@ -132,6 +124,11 @@
                     Background="#FF4040" 
                     Margin="5" 
                     Width="65">
+                <i:Interaction.Triggers >
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding DeleteButtonClickCommand}" CommandParameter="{Binding SelectedItem}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 
                 <Label VerticalAlignment="Center" 
                        HorizontalAlignment="Center">Delete</Label>
@@ -154,7 +151,13 @@
                     <ListBox HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              BorderThickness="0"
-                             ItemsSource="{Binding DisplayedItems}">
+                             ItemsSource="{Binding DisplayedItems}"
+                             SelectedItem="{Binding SelectedItem}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDoubleClick">
+                                <i:InvokeCommandAction Command="{Binding ShowEmployeeDetailsCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
 
                         <ListBox.Resources>
                             <DataTemplate DataType="{x:Type models:Organization}">

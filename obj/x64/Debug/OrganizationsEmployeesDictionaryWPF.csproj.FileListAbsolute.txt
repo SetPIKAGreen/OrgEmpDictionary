@@ -32,3 +32,9 @@ C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmp
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\OrganizationsEmployeesDictionaryWPF.csproj.CopyComplete
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\OrganizationsEmployeesDictionaryWPF.exe
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\OrganizationsEmployeesDictionaryWPF.pdb
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\EmployeeAddView.baml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\EmployeeAddView.g.cs
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\EmployeerDetailsView.g.cs
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\EmployeerDetailsView.baml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\EmployeeChangeView.baml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\EmployeeChangeView.g.cs

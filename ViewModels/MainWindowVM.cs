@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using OrganizationsEmployeesDictionaryWPF.DataBase;
+using OrganizationsEmployeesDictionaryWPF.Interface;
 using OrganizationsEmployeesDictionaryWPF.Models;
+using OrganizationsEmployeesDictionaryWPF.View;
 
 namespace OrganizationsEmployeesDictionaryWPF.ViewModels
 {
@@ -18,6 +22,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
         private string _searchText;
         private bool _isSearchEnabled;
         private bool _isAdd10Enabled;
+        private object _selectedItem;
 
         public List<Organization> Organizations
         {
@@ -74,9 +79,23 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 OnPropertyChange(nameof(IsAdd10Enabled));
             }
         }
+        public object SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChange(nameof(SelectedItem));
+            }
+        }
+        
 
         public ICommand ShowOrganizationsCommand { get; }
         public ICommand ShowEmployeesCommand { get; }
+        public ICommand AddButtonClickCommaand { get; }
+        public ICommand DeleteButtonClickCommand { get; }
+        public ICommand ShowEmployeeDetailsCommand { get; }
+        public ICommand ShowMessageCommand { get; }
 
 
         public MainWindowVM()
@@ -84,6 +103,9 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             _originalItems = new List<object>();
             ShowOrganizationsCommand = new RelayCommand(ShowOrganizations);
             ShowEmployeesCommand = new RelayCommand(ShowEmployees);
+            AddButtonClickCommaand = new RelayCommand(OnAddButton_Click);
+            DeleteButtonClickCommand = new RelayCommand(OnDeleteButton_Click);
+            ShowEmployeeDetailsCommand = new RelayCommand(OnSelectedEmployee_Click);
             IsSearchEnabled = false;
             IsAdd10Enabled = true;
             Initialize();
@@ -158,7 +180,18 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
 
             foreach(var a in Employees)
             {
-                a.OrganizationName = Organizations.FirstOrDefault(m => m.Id == a.OrganizationId).Name;
+                var tempOrganization = Organizations.FirstOrDefault(m => m.Id == a.OrganizationId);
+
+                    if (tempOrganization != null)
+                    {
+                        a.OrganizationName = tempOrganization.Name;
+                    }
+                    else
+                    {
+                        a.OrganizationName = "Организация удалена";
+                    }
+
+                
             }
             _originalItems.AddRange(Employees.Cast<object>());
         }
@@ -189,6 +222,66 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 (int.TryParse(searchText, out int age) && employee.Age == age))).ToList();
 
                 DisplayedItems = filtredItems.Cast<object>().ToList();
+            }
+        }
+        private async void OnEmployeeAdded(object sender, EventArgs e)
+        {
+            Employees = await DB.GetAllTable<Employee>();
+            GetOrganizationName();
+        }
+        private void OnSelectedEmployee_Click()
+        {
+            if (SelectedItem is Employee selectedEmployee)
+            {
+                var employeeDetailsVM = new EmployeeDetailsVM(selectedEmployee);
+                var employeeDetailsView = new EmployeerDetailsView
+                {
+                    DataContext = employeeDetailsVM
+                };
+                employeeDetailsView.ShowDialog();
+                GetOrganizationName();
+            }
+        }
+        private void OnAddButton_Click()
+        {
+            EmployeeAddView employeeAddView = new EmployeeAddView();
+            var employeeAddVM = (EmployeeAddVM)employeeAddView.DataContext;
+            employeeAddView.Show();
+
+        }      
+        private async void OnDeleteButton_Click(object value)
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            if(value is Employee)
+            {
+                await DB.DeleteAsync(value);
+                Employees = await DB.GetAllTable<Employee>();
+                DisplayedItems = Employees.Cast<object>().ToList();
+
+            }
+            else if(value is Organization)
+            {
+                await DB.DeleteAsync(value);
+                Organizations = await DB.GetAllTable<Organization>();
+                DisplayedItems = Organizations.Cast<object>().ToList();
+            }
+        }
+        private void GetOrganizationName()
+        {
+            foreach (var a in Employees)
+            {
+                if (Organizations.FirstOrDefault(m => m.Id == a.OrganizationId) != null)
+                {
+                    a.OrganizationName = Organizations.FirstOrDefault(m => m.Id == a.OrganizationId).Name;
+                }
+                else
+                {
+                    a.OrganizationName = "Организация удалена";
+                };
             }
         }
     }

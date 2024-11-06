@@ -1,6 +1,7 @@
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\OrganizationsEmployeesDictionaryWPF.exe.config
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\OrganizationsEmployeesDictionaryWPF.exe
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\OrganizationsEmployeesDictionaryWPF.pdb
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\SQLite-net.dll
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\SQLitePCLRaw.core.dll
@@ -9,6 +10,8 @@ C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmp
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\System.Memory.dll
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\SQLite-net.xml
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\System.Buffers.xml
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\System.Memory.xml
@@ -16,11 +19,16 @@ C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmp
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\OrganizationsEmployeesDictionaryWPF.csproj.AssemblyReference.cache
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\OrganizationsEmployeesDictionaryWPF.csproj.SuggestedBindingRedirects.cache
-C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\MainWindow.g.cs
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\View\EmployeeAddView.baml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\View\EmployeeAddView.g.cs
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\View\EmployeerDetailsView.g.cs
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\View\MainWindow.g.cs
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\App.g.cs
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\OrganizationsEmployeesDictionaryWPF_MarkupCompile.cache
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\OrganizationsEmployeesDictionaryWPF_MarkupCompile.lref
-C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\MainWindow.baml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\View\EmployeerDetailsView.baml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\View\MainWindow.baml
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\OrganizationsEmployeesDictionaryWPF.g.resources
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\OrganizationsEmployeesDictionaryWPF.Properties.Resources.resources
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\Debug\OrganizationsEmployeesDictionaryWPF.csproj.GenerateResource.cache

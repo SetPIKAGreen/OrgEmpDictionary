@@ -32,6 +32,9 @@ namespace OrganizationsEmployeesDictionaryWPF.View
                       
         }
 
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
 
+        }
     }
 }
