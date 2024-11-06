@@ -1,0 +1,130 @@
+﻿<Window x:Class="OrganizationsEmployeesDictionaryWPF.View.OrganizationDetailsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizationsEmployeesDictionaryWPF.View"
+        mc:Ignorable="d"
+        Title="Карточка Организации" Height="450" Width="800"
+        Background="#CDF93E">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="25"
+                Background="White"
+                Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="20">
+                    <Label FontSize="20">Организация:</Label>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            
+                        </Grid.RowDefinitions>
+
+                        <Label FontSize="16" Grid.Column="0" Grid.Row="0">Название:</Label>
+                        <Label FontSize="16" Grid.Column="0" Grid.Row="1">ИНН:</Label>
+                        <Label FontSize="16" Grid.Column="0" Grid.Row="2">Адрес:</Label>
+                        <Label FontSize="16" Grid.Column="0" Grid.Row="3">Телефон:</Label>
+                        
+
+
+                        <Label x:Name="Name"
+                                 Grid.Column="1" Grid.Row="0"
+                                 Width="200" Height="30"
+                                 Margin="5"
+                                 VerticalAlignment="Center"
+                                 Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label x:Name="Inn"
+                                 Grid.Column="1" Grid.Row="1"
+                                 Width="200" Height="30"
+                                 Margin="5"
+                                 VerticalAlignment="Center"
+                                 Content="{Binding Inn, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label x:Name="Adress"
+                                 Grid.Column="1" Grid.Row="2"
+                                 Width="200" Height="30"
+                                 Margin="5"
+                                 VerticalAlignment="Center"
+                                 Content="{Binding Adress, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label x:Name="Phone"
+                                 Grid.Column="1" Grid.Row="3"
+                                 Width="200" Height="30"
+                                 Margin="5"
+                                 VerticalAlignment="Center"
+                                 Content="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Border Background="#CDF93E"
+                                Grid.Column="1" Grid.Row="4"
+                                CornerRadius="10"
+                                Margin="30,0,30,0">
+                            <Label FontSize="16" HorizontalAlignment="Center" >Сотрудники</Label>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding ChangeOrganizationCommand}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="1" VerticalAlignment="Bottom">
+                    <Border Background="Green"
+                        CornerRadius="10"
+                        Padding="10"
+                        Margin="0,0,40,10"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Width="150" Height="42"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding ChangeOrganizationCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <TextBlock Text="Изменить данные"
+                               HorizontalAlignment="Center"
+                               FontSize="12" />
+                    </Border>
+                    <Border Background="#FF4040"
+                        CornerRadius="10"
+                        Padding="10"
+                        Margin="0,0,40,40"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Width="150" Height="42"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding DeleteOrganizationCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <TextBlock Text="Удалить данные"
+                               HorizontalAlignment="Center"
+                               FontSize="12" />
+                    </Border>
+                </StackPanel>
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

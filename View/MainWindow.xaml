@@ -155,7 +155,7 @@
                              SelectedItem="{Binding SelectedItem}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDoubleClick">
-                                <i:InvokeCommandAction Command="{Binding ShowEmployeeDetailsCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding ShowItemDetailsCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
 
@@ -189,6 +189,7 @@
 
                                         </StackPanel>
                                     </StackPanel>
+                                    
                                 </Border>
                             </DataTemplate>
 

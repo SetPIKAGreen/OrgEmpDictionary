@@ -94,7 +94,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
         public ICommand ShowEmployeesCommand { get; }
         public ICommand AddButtonClickCommaand { get; }
         public ICommand DeleteButtonClickCommand { get; }
-        public ICommand ShowEmployeeDetailsCommand { get; }
+        public ICommand ShowItemDetailsCommand { get; }
         public ICommand ShowMessageCommand { get; }
 
 
@@ -105,7 +105,8 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             ShowEmployeesCommand = new RelayCommand(ShowEmployees);
             AddButtonClickCommaand = new RelayCommand(OnAddButton_Click);
             DeleteButtonClickCommand = new RelayCommand(OnDeleteButton_Click);
-            ShowEmployeeDetailsCommand = new RelayCommand(OnSelectedEmployee_Click);
+            ShowItemDetailsCommand = new RelayCommand(OnSelectedItem_Click);
+
             IsSearchEnabled = false;
             IsAdd10Enabled = true;
             Initialize();
@@ -229,7 +230,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             Employees = await DB.GetAllTable<Employee>();
             GetOrganizationName();
         }
-        private void OnSelectedEmployee_Click()
+        private void OnSelectedItem_Click()
         {
             if (SelectedItem is Employee selectedEmployee)
             {
@@ -241,12 +242,31 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 employeeDetailsView.ShowDialog();
                 GetOrganizationName();
             }
+            else if(SelectedItem is Organization selectedOrganization)
+            {
+                var organizationDetailsVM = new OrganizationDetailsVM(selectedOrganization);
+                var organizationDetailsView = new OrganizationDetailsView
+                {
+                    DataContext = organizationDetailsVM
+                };
+                organizationDetailsView.ShowDialog();
+            }
         }
+
         private void OnAddButton_Click()
         {
-            EmployeeAddView employeeAddView = new EmployeeAddView();
-            var employeeAddVM = (EmployeeAddVM)employeeAddView.DataContext;
-            employeeAddView.Show();
+            if (IsSearchEnabled == true)
+            {
+                EmployeeAddView employeeAddView = new EmployeeAddView();
+                var employeeAddVM = (EmployeeAddVM)employeeAddView.DataContext;
+                employeeAddView.Show();
+            }
+            else
+            {
+                OrganizationAddView organizationAddView = new OrganizationAddView();
+                var organizationAddVM = (OrganizationAddVM)organizationAddView.DataContext;
+                organizationAddView.Show();
+            }
 
         }      
         private async void OnDeleteButton_Click(object value)
