@@ -119,6 +119,11 @@
                         </Style.Triggers>
                     </Style>
                 </Border.Style>
+                <i:Interaction.Triggers >
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding Add10ButtonClickCommaand}" CommandParameter="{Binding SelectedItem}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <Label VerticalAlignment="Center" 
                        HorizontalAlignment="Center">Добавить 10</Label>
             </Border>

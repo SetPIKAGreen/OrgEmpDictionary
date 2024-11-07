@@ -93,6 +93,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
         public ICommand ShowOrganizationsCommand { get; }
         public ICommand ShowEmployeesCommand { get; }
         public ICommand AddButtonClickCommaand { get; }
+        public ICommand Add10ButtonClickCommaand { get; }
         public ICommand DeleteButtonClickCommand { get; }
         public ICommand ShowItemDetailsCommand { get; }
         public ICommand ShowMessageCommand { get; }
@@ -104,6 +105,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             ShowOrganizationsCommand = new RelayCommand(ShowOrganizations);
             ShowEmployeesCommand = new RelayCommand(ShowEmployees);
             AddButtonClickCommaand = new RelayCommand(OnAddButton_Click);
+            Add10ButtonClickCommaand = new RelayCommand(OnAdd10Button_Click);
             DeleteButtonClickCommand = new RelayCommand(OnDeleteButton_Click);
             ShowItemDetailsCommand = new RelayCommand(OnSelectedItem_Click);
 
@@ -270,6 +272,54 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             }
 
         }      
+        private async void OnAdd10Button_Click()
+        {
+            MessageBoxResult result = MessageBox.Show(
+            "Вы уверены, что хотите создать 10 организаций со 100 сотрудниками в каждой?",
+            "Предупреждение",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Organization organization = new Organization
+                    {
+                        Name = $"Организация-{i}",
+                        Inn = $"00000-{i}",
+                        Adress = $"Офси № {i}",
+                        Phone = $"363-00-{i}"
+                    };
+                    await DB.AddAsync(organization);
+                    for (int j = 0; j < 100; j++)
+                    {
+                        Employee employee = new Employee
+                        {
+                            FirstName = $"Имя - {j}",
+                            LastName = $"Фамилия - {j}",
+                            Age = j,
+                            Position = "Рабочий",
+                            OrganizationId = organization.Id,
+                        };
+                        await DB.AddAsync(employee);
+
+                    }
+                }
+                Employees = await DB.GetAllTable<Employee>();
+                Organizations = await DB.GetAllTable<Organization>();
+                DisplayedItems = Organizations.Cast<object>().ToList();
+                GetOrganizationName();
+                MessageBoxResult message = MessageBox.Show(
+                "Данные созданы",
+                "",
+                MessageBoxButton.OK,
+                MessageBoxImage.Warning);
+            }
+
+
+
+        }
         private async void OnDeleteButton_Click(object value)
         {
             if (value == null)

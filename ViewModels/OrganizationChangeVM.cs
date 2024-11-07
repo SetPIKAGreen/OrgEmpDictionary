@@ -98,10 +98,6 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             mainVM.DisplayedItems = mainVM.Organizations.Cast<object>().ToList();
             CloseWindow();
         }
-        private void CloseWindow()
-        {
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            currentWindow?.Close();
-        }
+
     }
 }

@@ -17,7 +17,11 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(proertyName));
         }
 
-
+        protected void CloseWindow()
+        {
+            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            currentWindow?.Close();
+        }
     }
 
 

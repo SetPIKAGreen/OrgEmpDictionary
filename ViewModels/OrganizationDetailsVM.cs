@@ -74,10 +74,6 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             };
             employeesOfOrganizationView.ShowDialog();
         }
-        private void CloseWindow()
-        {
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            currentWindow?.Close();
-        }
+
     }
 }

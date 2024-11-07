@@ -106,11 +106,6 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             AddButtonClickCommand = new RelayCommand(OnAddButton_Click);
             OpenPhotoPathCommand = new RelayCommand(OpenPhotoPath);
         }
-        private void CloseWindow()
-        {
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            currentWindow?.Close();
-        }
 
         private async void OnAddButton_Click()
         {

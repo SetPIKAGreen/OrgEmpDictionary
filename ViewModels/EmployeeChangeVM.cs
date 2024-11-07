@@ -184,10 +184,6 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 PhotoPath = destinationPath;
             }
         }
-        private void CloseWindow()
-        {
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            currentWindow?.Close();
-        }
+
     }
 }
