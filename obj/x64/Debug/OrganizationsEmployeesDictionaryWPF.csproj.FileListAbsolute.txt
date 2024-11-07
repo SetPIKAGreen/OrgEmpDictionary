@@ -46,3 +46,13 @@ C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmp
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\EmployeesOfOrganizationView.baml
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\OrganizationChangeView.g.cs
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\obj\x64\Debug\View\OrganizationChangeView.baml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\Serilog.dll
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\Serilog.Sinks.File.dll
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\System.Threading.Channels.dll
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\Serilog.xml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\Serilog.Sinks.File.xml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\System.Threading.Channels.xml
+C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\bin\x64\Debug\System.Threading.Tasks.Extensions.xml

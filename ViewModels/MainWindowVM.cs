@@ -9,6 +9,7 @@ using System.Windows.Input;
 using OrganizationsEmployeesDictionaryWPF.DataBase;
 using OrganizationsEmployeesDictionaryWPF.Interface;
 using OrganizationsEmployeesDictionaryWPF.Models;
+using OrganizationsEmployeesDictionaryWPF.Service;
 using OrganizationsEmployeesDictionaryWPF.View;
 
 namespace OrganizationsEmployeesDictionaryWPF.ViewModels
@@ -255,7 +256,6 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 organizationDetailsView.ShowDialog();
             }
         }
-
         private void OnAddButton_Click()
         {
             if (IsSearchEnabled == true)
@@ -282,6 +282,8 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
 
             if (result == MessageBoxResult.Yes)
             {
+                Logger.Instance.LogInformation("Добавление 10 организаций и 1000 сотрудников запуено");
+                List<Employee> employees = new List<Employee>();
                 for (int i = 0; i < 10; i++)
                 {
                     Organization organization = new Organization
@@ -291,7 +293,10 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                         Adress = $"Офси № {i}",
                         Phone = $"363-00-{i}"
                     };
+
                     await DB.AddAsync(organization);
+                    
+
                     for (int j = 0; j < 100; j++)
                     {
                         Employee employee = new Employee
@@ -302,10 +307,11 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                             Position = "Рабочий",
                             OrganizationId = organization.Id,
                         };
-                        await DB.AddAsync(employee);
+                        employees.Add(employee);
 
                     }
                 }
+                await DB.AddAllAsync(employees);
                 Employees = await DB.GetAllTable<Employee>();
                 Organizations = await DB.GetAllTable<Organization>();
                 DisplayedItems = Organizations.Cast<object>().ToList();
