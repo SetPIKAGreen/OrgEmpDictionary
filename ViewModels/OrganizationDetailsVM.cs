@@ -16,6 +16,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
         public Organization SelectedOrganization { get; }
         public ICommand DeleteOrganizationCommand { get; }
         public ICommand ChangeOrganizationCommand { get; }
+        public ICommand EmployeesOfOrganizationCommand { get; }
 
         public string Name => SelectedOrganization.Name;
         public string Inn => SelectedOrganization.Inn;
@@ -26,6 +27,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             SelectedOrganization = organization;
             DeleteOrganizationCommand = new RelayCommand(OnDeleteButton_Click);
             ChangeOrganizationCommand = new RelayCommand(OnChangeButton_Click);
+            EmployeesOfOrganizationCommand = new RelayCommand(OnListOfEployees_Click);
         }
         private async void OnDeleteButton_Click()
         {
@@ -61,6 +63,16 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             };
             organizationChangeView.ShowDialog();
             CloseWindow();
+        }
+        private void OnListOfEployees_Click()
+        {
+            /*переделать на нужный Вью*/
+            EmployeesOfOrganizationVM employeesOfOrganizationVM = new EmployeesOfOrganizationVM(SelectedOrganization);
+            EmployeesOfOrganizationView employeesOfOrganizationView = new EmployeesOfOrganizationView
+            {
+                DataContext = employeesOfOrganizationVM
+            };
+            employeesOfOrganizationView.ShowDialog();
         }
         private void CloseWindow()
         {

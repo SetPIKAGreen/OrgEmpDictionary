@@ -105,14 +105,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\EmployeesOfOrganizationVM.cs" />
     <Compile Include="ViewModels\OrganizationAddVM.cs" />
     <Compile Include="ViewModels\OrganizationChangeVM.cs" />
     <Compile Include="ViewModels\OrganizationDetailsVM.cs" />
-    <Compile Include="View\OrganizationCangeView.xaml.cs">
-      <DependentUpon>OrganizationCangeView.xaml</DependentUpon>
+    <Compile Include="View\EmployeesOfOrganizationView.xaml.cs">
+      <DependentUpon>EmployeesOfOrganizationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OrganizationAddView.xaml.cs">
       <DependentUpon>OrganizationAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrganizationChangeView.xaml.cs">
+      <DependentUpon>OrganizationChangeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OrganizationDetailsView.xaml.cs">
       <DependentUpon>OrganizationDetailsView.xaml</DependentUpon>
@@ -126,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EmployeerDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EmployeesOfOrganizationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,11 +166,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\OrganizationCangeView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\OrganizationAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OrganizationChangeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -205,6 +205,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
         }
         private void ShowEmployees()
         {
+            GetOrganizationName();
             DisplayedItems = Employees.Cast<object>().ToList();
             IsSearchEnabled = true;
             IsAdd10Enabled = false;
@@ -219,7 +220,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
             else
             {
                 var filtredItems = _originalItems.Where(m => m is Employee employee && (employee.FirstName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                employee.LastName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 || employee.Position.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                employee.LastName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 || employee.Position.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 || employee.OrganizationName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
                 (int.TryParse(searchText, out int age) && employee.Age == age))).ToList();
 
                 DisplayedItems = filtredItems.Cast<object>().ToList();
@@ -288,6 +289,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 await DB.DeleteAsync(value);
                 Organizations = await DB.GetAllTable<Organization>();
                 DisplayedItems = Organizations.Cast<object>().ToList();
+                GetOrganizationName();
             }
         }
         private void GetOrganizationName()

@@ -18,9 +18,9 @@ namespace OrganizationsEmployeesDictionaryWPF.View
     /// <summary>
     /// Логика взаимодействия для OrganizationAddView.xaml
     /// </summary>
-    public partial class OrganizationChangeView : Window
+    public partial class OrganizationAddView : Window
     {
-        public OrganizationChangeView()
+        public OrganizationAddView()
         {
             InitializeComponent();
             DataContext = new OrganizationAddVM();

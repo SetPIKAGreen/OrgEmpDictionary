@@ -1,8 +1,12 @@
 ﻿<Window x:Class="OrganizationsEmployeesDictionaryWPF.View.OrganizationChangeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        Title="Добавить организацию" Height="450" Width="800"
+        xmlns:local="clr-namespace:OrganizationsEmployeesDictionaryWPF.View"
+        mc:Ignorable="d"
+        Title="Измение данных органиации" Height="450" Width="800"
         Background="#CDF93E">
     <Grid>
         <Grid.RowDefinitions>
@@ -39,7 +43,7 @@
                         <Label FontSize="16" Grid.Column="0" Grid.Row="1">ИНН:</Label>
                         <Label FontSize="16" Grid.Column="0" Grid.Row="2">Адрес:</Label>
                         <Label FontSize="16" Grid.Column="0" Grid.Row="3">Телефон:</Label>
-                        
+
 
                         <TextBox x:Name="Name"
                                  Grid.Column="1" Grid.Row="0"
@@ -68,7 +72,7 @@
                     </Grid>
                 </StackPanel>
 
-                <Border Background="Green"
+                <Border Background="#39E639"
                         CornerRadius="10"
                         Padding="10"
                         Margin="0,0,40,40"
@@ -79,10 +83,10 @@
                         VerticalAlignment="Bottom">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonDown">
-                            <i:InvokeCommandAction Command="{Binding AddOrganizationCommand}" />
+                            <i:InvokeCommandAction Command="{Binding SaveOrganizationCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                    <TextBlock Text="Добавить организацию"
+                    <TextBlock Text="Соранить изменения"
                                HorizontalAlignment="Center"
                                FontSize="12" />
                 </Border>

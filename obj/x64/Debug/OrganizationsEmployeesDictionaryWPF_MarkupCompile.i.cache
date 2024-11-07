@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Green\source\repos\OrganizationsEmployeesDictionaryWPF\OrganizationsEmployeesDictionaryWPF\App.xaml
-7339742583
+8-1861046332
 
-251724940800
+27-477656730
 1271669132001
-View\EmployeeAddView.xaml;View\EmployeeChangeView.xaml;View\EmployeerDetailsView.xaml;View\MainWindow.xaml;View\OrganizationCangeView.xaml;View\OrganizationAddView.xaml;View\OrganizationDetailsView.xaml;
+View\EmployeeAddView.xaml;View\EmployeeChangeView.xaml;View\EmployeerDetailsView.xaml;View\EmployeesOfOrganizationView.xaml;View\MainWindow.xaml;View\OrganizationCangeView.xaml;View\OrganizationAddView.xaml;View\OrganizationDetailsView.xaml;
 
 True
 

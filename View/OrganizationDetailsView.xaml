@@ -71,21 +71,21 @@
                                  Margin="5"
                                  VerticalAlignment="Center"
                                  Content="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Border Background="#CDF93E"
+                        <Border Background="#FFDE40"
                                 Grid.Column="1" Grid.Row="4"
                                 CornerRadius="10"
                                 Margin="30,0,30,0">
                             <Label FontSize="16" HorizontalAlignment="Center" >Сотрудники</Label>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
-                                    <i:InvokeCommandAction Command="{Binding ChangeOrganizationCommand}" />
+                                    <i:InvokeCommandAction Command="{Binding EmployeesOfOrganizationCommand}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Border>
                     </Grid>
                 </StackPanel>
                 <StackPanel Grid.Column="1" VerticalAlignment="Bottom">
-                    <Border Background="Green"
+                    <Border Background="#BE91EA"
                         CornerRadius="10"
                         Padding="10"
                         Margin="0,0,40,10"

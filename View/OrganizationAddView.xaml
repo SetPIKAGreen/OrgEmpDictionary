@@ -68,7 +68,7 @@
                     </Grid>
                 </StackPanel>
 
-                <Border Background="Green"
+                <Border Background="#39E639"
                         CornerRadius="10"
                         Padding="10"
                         Margin="0,0,40,40"

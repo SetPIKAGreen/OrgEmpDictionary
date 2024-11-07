@@ -118,7 +118,7 @@
                                 Margin="20,60,45,0"
                                 VerticalAlignment="Top"
                                 Height="193">
-                        <Border Background="Green"
+                        <Border Background="#39E639"
                                 CornerRadius="10"
                                 Padding="10" Margin="3,10,3,0"
                                 Cursor="Hand"

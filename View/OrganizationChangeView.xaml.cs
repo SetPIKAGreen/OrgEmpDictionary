@@ -1,5 +1,4 @@
-﻿using OrganizationsEmployeesDictionaryWPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +15,13 @@ using System.Windows.Shapes;
 namespace OrganizationsEmployeesDictionaryWPF.View
 {
     /// <summary>
-    /// Логика взаимодействия для OrganizationAddView.xaml
+    /// Логика взаимодействия для OrganizationChangeView.xaml
     /// </summary>
-    public partial class OrganizationAddView : Window
+    public partial class OrganizationChangeView : Window
     {
-        public OrganizationAddView()
+        public OrganizationChangeView()
         {
             InitializeComponent();
-            DataContext = new OrganizationAddVM();
         }
     }
 }

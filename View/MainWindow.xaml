@@ -26,32 +26,52 @@
 
             <StackPanel Grid.Column="0">
 
-                    <Border Background="#876ED7"
-                            Margin="5,5,5,0"
-                            CornerRadius="15">
+                    <Border Margin="5,5,5,0"
+                            CornerRadius="15"
+                            IsEnabled="{Binding IsSearchEnabled}">
                         
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding ShowOrganizationsCommand}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        
-                        <Label VerticalAlignment="Center"
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="#876ED7"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsSearchEnabled}" Value="false">
+                                    <Setter Property="Background" Value="#CBC6AA"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <Label VerticalAlignment="Center"
                                Margin="15,0,15,0" 
-                               Content="Организации"/>
+                               Content="Организации"
+                               />
                     </Border>
                 
-                    <Border Background="#876ED7"
+                    <Border 
                             Margin="5"
-                            CornerRadius="15">
-                        
-                        <i:Interaction.Triggers>
+                            CornerRadius="15"
+                            IsEnabled="{Binding IsAdd10Enabled}">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="#876ED7"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAdd10Enabled}" Value="False">
+                                    <Setter Property="Background" Value="#CBC6AA"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding ShowEmployeesCommand}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        
-                        <Label VerticalAlignment="Center"
+ 
+                    <Label VerticalAlignment="Center"
                                Margin="15,0,15,0" 
                                Content="Сотрудники"/>
                     </Border>
@@ -87,7 +107,7 @@
                     CornerRadius="15" 
                      
                     Margin="5" 
-                    Width="65"
+                    Width="80"
                     IsEnabled="{Binding IsAdd10Enabled}">
                 <Border.Style>
                     <Style TargetType="Border">
@@ -100,7 +120,7 @@
                     </Style>
                 </Border.Style>
                 <Label VerticalAlignment="Center" 
-                       HorizontalAlignment="Center">Add10</Label>
+                       HorizontalAlignment="Center">Добавить 10</Label>
             </Border>
             
             <Border Grid.Column="4" 
@@ -116,7 +136,7 @@
                 </i:Interaction.Triggers>
 
                 <Label VerticalAlignment="Center" 
-                       HorizontalAlignment="Center">Add</Label>
+                       HorizontalAlignment="Center">Добавить</Label>
             </Border>
             
             <Border Grid.Column="6" 
@@ -131,7 +151,7 @@
                 </i:Interaction.Triggers>
                 
                 <Label VerticalAlignment="Center" 
-                       HorizontalAlignment="Center">Delete</Label>
+                       HorizontalAlignment="Center">Удалить</Label>
             </Border>
         </Grid>
 
