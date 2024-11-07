@@ -245,6 +245,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 };
                 employeeDetailsView.ShowDialog();
                 GetOrganizationName();
+                Logger.Instance.LogInformation($"Открыт просмотр карточки Employee c id: {selectedEmployee.Id}");
             }
             else if(SelectedItem is Organization selectedOrganization)
             {
@@ -254,6 +255,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                     DataContext = organizationDetailsVM
                 };
                 organizationDetailsView.ShowDialog();
+                Logger.Instance.LogInformation($"Открыт просмотр карточки Organization c id: {selectedOrganization.Id}");
             }
         }
         private void OnAddButton_Click()

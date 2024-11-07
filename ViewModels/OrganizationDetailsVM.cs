@@ -1,5 +1,6 @@
 ﻿using OrganizationsEmployeesDictionaryWPF.DataBase;
 using OrganizationsEmployeesDictionaryWPF.Models;
+using OrganizationsEmployeesDictionaryWPF.Service;
 using OrganizationsEmployeesDictionaryWPF.View;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,7 @@ namespace OrganizationsEmployeesDictionaryWPF.ViewModels
                 DataContext = organizationChangeVM
             };
             organizationChangeView.ShowDialog();
+            Logger.Instance.LogInformation($"Открыто изменение данных Organization.id = {SelectedOrganization.Id}");
             CloseWindow();
         }
         private void OnListOfEployees_Click()
